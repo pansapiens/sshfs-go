@@ -24,14 +24,14 @@ import (
 const Name = "sshfs"
 
 // Version describes the version of this tool
-const Version = "1.0.0"
+const Version = "1.0.0-pansapiens"
 
 // versionCmd represents the version command
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "A brief description of your command",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Printf("%s %s", Name, Version)
+		fmt.Printf("%s %s\n", Name, Version)
 	},
 }
 
