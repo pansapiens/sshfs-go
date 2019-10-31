@@ -17,7 +17,7 @@ package cmd
 import (
 	"errors"
 	"github.com/sirupsen/logrus"
-	"github.com/soopsio/sshfs-go/fs"
+	"github.com/pansapiens/sshfs-go/fs"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"os"
@@ -41,7 +41,8 @@ var mountCmd = &cobra.Command{
 		return nil
 	},
 	Run: func(cmd *cobra.Command, args []string) {
-		config := fs.NewConfig(viper.GetString("username"), viper.GetString("password"))
+		// publicKeyPath := os.Getenv("HOME") + `/.ssh/id_rsa`
+		config := fs.NewConfig(viper.GetString("username"), viper.GetString("password"), viper.GetString("private-key"))
 		logrus.WithField("address", viper.GetString("address")).Info("creating FUSE client for SSH Server")
 
 		fs, err := fs.New(config, args[0], viper.GetString("address"), viper.GetString("root"))
@@ -76,4 +77,5 @@ func init() {
 	mountCmd.Flags().StringP("username", "u", "root", "ssh username")
 	mountCmd.Flags().StringP("password", "p", "", "ssh password")
 	mountCmd.Flags().StringP("root", "r", "/opt", "ssh root")
+	mountCmd.Flags().StringP("private-key", "i", os.Getenv("HOME")+`/.ssh/id_rsa`, "path to private ssh key")
 }
