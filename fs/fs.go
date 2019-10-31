@@ -85,7 +85,7 @@ func (v *SSHFS) Mount() error {
 		fuse.WritebackCache(),
 		fuse.DefaultPermissions(),
 		fuse.AllowDev(),
-		fuse.AllowOther(),
+		//fuse.AllowOther(),
 		//fuse.AllowRoot(),
 	)
 
