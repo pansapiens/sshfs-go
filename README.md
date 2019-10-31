@@ -1,10 +1,12 @@
 # SSHFS
 
-[![Build Status](https://travis-ci.org/soopsio/sshfs.svg?branch=master)](https://travis-ci.org/soopsio/sshfs)
+<!-- [![Build Status](https://travis-ci.org/soopsio/sshfs.svg?branch=master)](https://travis-ci.org/soopsio/sshfs) -->
 
 SSHFS mounts arbitrary [sftp](https://github.com/pkg/sftp) prefixes in a FUSE
 filesystem. It also provides a Docker volume plugin to the do the same for your
 containers.
+
+Forked from: https://github.com/soopsio/sshfs-go
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
 **Table of Contents**
@@ -22,8 +24,8 @@ This project is in early development and has not reached 1.0. You will have to
 build the binary yourself:
 
 ```shell
-go get github.com/soopsio/sshfs-go
-env GOOS=linux go build github.com/soopsio/sshfs-go
+go get github.com/pansapiens/sshfs-go
+env GOOS=linux go build github.com/pansapiens/sshfs-go
 ```
 
 # Usage
